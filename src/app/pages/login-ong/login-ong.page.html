@@ -1,0 +1,63 @@
+<div class="auth-wrapper">
+  <div class="top-bar">
+    <a routerLink="/" class="btn-back">&larr; Voltar para a Vitrine de ONGs</a>
+  </div>
+
+  <div class="auth-container">
+    
+    <div class="auth-section">
+      <div class="section-title">
+        <span class="form-tag">PAINEL</span>
+        <h2>Já tenho cadastro</h2>
+        <p>Acesse sua conta institucional para gerenciar os pedidos.</p>
+      </div>
+      
+      <form class="custom-form" (submit)="entrarNoSistema(); $event.preventDefault()">
+        <div class="input-group">
+          <label for="email-login">E-mail Corporativo</label>
+          <input type="email" id="email-login" name="emailLogin" [(ngModel)]="emailLogin" placeholder="exemplo@ong.org" required>
+        </div>
+        <div class="input-group">
+          <label for="pass-login">Senha de Acesso</label>
+          <input type="password" id="pass-login" name="passLogin" [(ngModel)]="passLogin" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-submit btn-green">Entrar no Sistema</button>
+      </form>
+    </div>
+
+    <div class="vertical-line"></div>
+
+    <div class="auth-section">
+      <div class="section-title">
+        <span class="form-tag">REGISTRO</span>
+        <h2>Quero integrar minha ONG</h2>
+        <p>Cadastre sua instituição e comece a receber ajuda da comunidade.</p>
+      </div>
+      
+      <form class="custom-form" (submit)="solicitarCadastro(); $event.preventDefault()">
+        <div class="input-group">
+          <label for="nome-ong">Nome da Organização</label>
+          <input type="text" id="nome-ong" name="nomeOng" [(ngModel)]="nomeOng" placeholder="Ex: Associação Amigos do Prato" required>
+        </div>
+        <div class="input-group">
+          <label for="desc-ong">Breve Histórico / Descrição</label>
+          <textarea id="desc-ong" name="descOng" [(ngModel)]="descOng" rows="2" placeholder="Conte o propósito da sua instituição..." required></textarea>
+        </div>
+        <div class="input-group">
+          <label for="tel-ong">WhatsApp de Contato</label>
+          <input type="tel" id="tel-ong" name="telOng" [(ngModel)]="telOng" placeholder="Apenas números com DDD (Ex: 47999998888)" required>
+        </div>
+        <div class="input-group">
+          <label for="email-cad">E-mail Administrativo</label>
+          <input type="email" id="email-cad" name="emailCad" [(ngModel)]="emailCad" placeholder="contato@suaong.org" required>
+        </div>
+        <div class="input-group">
+          <label for="pass-cad">Crie uma Senha</label>
+          <input type="password" id="pass-cad" name="passCad" [(ngModel)]="passCad" placeholder="Mínimo 6 caracteres" required>
+        </div>
+        <button type="submit" class="btn-submit btn-gold">Solicitar Cadastro</button>
+      </form>
+    </div>
+
+  </div>
+</div>

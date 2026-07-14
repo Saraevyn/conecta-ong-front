@@ -1,0 +1,77 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <span class="brand-icon">🌍</span>
+      <h2>ConectaONG</h2>
+    </div>
+    <div class="nav-links">
+      <a href="#ongs" class="active">Instituições</a>
+      <a href="#sobre">Nossa Missão</a>
+      <a routerLink="/login" class="btn-nav-login">Área da ONG</a>
+      <a routerLink="/painel" class="btn-nav-panel">Painel Administrativo</a>
+    </div>
+  </div>
+</nav>
+
+<main class="main-content">
+  
+  <section class="hero-section">
+    <span class="tagline">CONECTA ONG</span>
+    <h1>Alimentos para pessoas,<br><span class="highlight">ajuda para quem precisa</span></h1>
+    <p>Onde a compaixão encontra a ação. Conectamos doadores diretamente com as necessidades reais de cada instituição de forma simples e transparente.</p>
+    <a href="#ongs" class="btn-hero-cta">Explorar Causas</a>
+  </section>
+
+  <section id="ongs" class="vitrine-section">
+    <div class="section-header">
+      <h2>Seja um voluntário e cause impacto</h2>
+      <p>Selecione uma instituição abaixo para visualizar a lista de desejos e colaborar.</p>
+    </div>
+
+    <div class="grid-ongs">
+      
+      <div class="card-ong" *ngFor="let ong of ongsEstaticas">
+        <div class="card-body">
+          <div class="card-tag">{{ ong.tag }}</div>
+          <h3>{{ ong.nome }}</h3>
+          <p>{{ ong.descricao }}</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn-card-action">Colaborar</button>
+        </div>
+      </div>
+
+      <div class="card-ong card-dinamico" *ngFor="let ong of ongsDinamicas">
+        <div class="card-body">
+          <div class="card-tag tag-dinamica">{{ ong.tag }}</div>
+          <h3>{{ ong.nome }}</h3>
+          <p>{{ ong.descricao }}</p>
+        </div>
+        <div class="card-footer">
+          <a [href]="'https://wa.me/' + ong.whatsapp" target="_blank" class="btn-card-action">Colaborar (WhatsApp)</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer id="sobre" class="footer">
+  <div class="footer-content">
+    <h2>JUNTE-SE À NOSSA MISSÃO.<br>SEJA VOLUNTÁRIO, DOE, DEFENDA. COMECE HOJE.</h2>
+    
+    <div class="footer-contacts">
+      <p><strong>E-mail:</strong> contato&#64;conectaong.com</p>
+      <p><strong>Fale conosco:</strong> (47) 99999-2026</p>
+    </div>
+
+    <div class="footer-actions">
+      <a href="#ongs" class="btn-footer-gold">Colaborar</a>
+      <a routerLink="/painel" class="btn-footer-outline">Painel Administrativo</a>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2026 ConectaONG. Todos os direitos reservados. Projeto de TCC - Entra21.</p>
+  </div>
+</footer>

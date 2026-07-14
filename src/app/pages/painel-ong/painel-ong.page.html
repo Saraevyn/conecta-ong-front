@@ -1,0 +1,98 @@
+<header class="panel-header">
+    <div class="panel-header-container">
+      <div class="panel-brand">
+        <span class="brand-icon">🤝</span>
+        <h2>ConectaONG <span class="badge-admin">Painel Administrativo</span></h2>
+      </div>
+      <div class="panel-user">
+        <span class="user-name">Olá, <strong>{{ nomeOngLogada }}</strong></span>
+        <a routerLink="/" class="btn-logout">Sair</a>
+      </div>
+    </div>
+  </header>
+  
+  <main class="panel-container">
+  
+    <aside class="panel-sidebar">
+      <div class="card-form">
+        <h3>Solicitar Doação</h3>
+        <p>Cadastre um novo item que a sua instituição está precisando urgentemente no momento.</p>
+        
+        <form (submit)="adicionarPedido(); $event.preventDefault()">
+          <div class="input-group">
+            <label for="item">Item / Alimento</label>
+            <input type="text" id="item" name="item" [(ngModel)]="novoItem" placeholder="Ex: Arroz (Saco de 5kg)" required>
+          </div>
+  
+          <div class="input-group">
+            <label for="qtd">Quantidade Necessária</label>
+            <input type="text" id="qtd" name="qtd" [(ngModel)]="novaQuantidade" placeholder="Ex: 10 pacotes, 50 litros" required>
+          </div>
+  
+          <div class="input-group">
+            <label for="prioridade">Nível de Urgência</label>
+            <select id="prioridade" name="prioridade" [(ngModel)]="novaPrioridade">
+              <option value="Alta">Alta</option>
+              <option value="Média">Média</option>
+              <option value="Baixa">Baixa</option>
+            </select>
+          </div>
+  
+          <button type="submit" class="btn-submit-panel">Cadastrar Pedido</button>
+        </form>
+      </div>
+    </aside>
+  
+    <section class="panel-content">
+      <div class="table-card">
+        <div class="table-header">
+          <h3>Lista de Pedidos Atuais</h3>
+          <p>Estes são os itens ativos que aparecem para doadores na vitrine.</p>
+        </div>
+  
+        <div class="empty-state" *ngIf="pedidos.length === 0">
+          <p>Nenhum pedido cadastrado no momento. Solicite algo ao lado!</p>
+        </div>
+        <table class="pedido-table" *ngIf="pedidos.length > 0">
+          <thead>
+            <tr>
+              <th>Item Solicitado</th>
+              <th>Quantidade</th>
+              <th>Urgência</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pedido of pedidos" [class.status-recebido]="pedido.status === 'Recebido'">
+              <td><strong>{{ pedido.item }}</strong></td>
+              <td>{{ pedido.quantidade }}</td>
+              <td>
+                <span class="badge-priority" [ngClass]="{
+                  'prio-alta': pedido.prioridade === 'Alta',
+                  'prio-media': pedido.prioridade === 'Média',
+                  'prio-baixa': pedido.prioridade === 'Baixa'
+                }">
+                  {{ pedido.prioridade }}
+                </span>
+              </td>
+              <td>
+                <span class="status-indicator" [class.indicator-success]="pedido.status === 'Recebido'">
+                  {{ pedido.status }}
+                </span>
+              </td>
+              <td class="action-buttons">
+                <button type="button" class="btn-action-check" (click)="alterarStatus(pedido.id)">
+                  {{ pedido.status === 'Pendente' ? '↺ Pendente' : '✓ Entregue' }} 
+                </button>
+                <button type="button" class="btn-action-delete" (click)="excluirPedido(pedido.id)">
+                  🗑️
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  
+  </main>
