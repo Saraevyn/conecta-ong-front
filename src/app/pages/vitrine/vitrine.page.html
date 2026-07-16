@@ -1,0 +1,101 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <span class="brand-icon">🌍</span>
+      <h2>ConectaONG</h2>
+    </div>
+    <div class="nav-links">
+      <a href="#ongs" class="active">Instituições</a>
+      <a href="#sobre">Nossa Missão</a>
+      <a routerLink="/login" class="btn-nav-login">Área da ONG</a>
+    </div>
+  </div>
+</nav>
+
+<main class="main-content">
+  
+  <section class="hero-section">
+    <span class="tagline">CONECTA ONG</span>
+    <h1>Alimentos para pessoas,<br><span class="highlight">ajuda para quem precisa</span></h1>
+    <p>Onde a compaixão encontra a ação. Conectamos doadores diretamente com as necessidades reais de cada instituição de forma simples e transparente.</p>
+    <a href="#ongs" class="btn-hero-cta">Explorar Causas</a>
+  </section>
+
+  <section id="ongs" class="vitrine-section">
+    <div class="section-header">
+      <h2>Seja um voluntário e cause impacto</h2>
+      <p>Selecione uma instituição abaixo para visualizar a lista de desejos e colaborar.</p>
+    </div>
+
+    <div class="empty-state-vitrine" *ngIf="ongsDinamicas.length === 0">
+      <div class="empty-box">
+        <span>🌱</span>
+        <h3>Nenhuma ONG parceira cadastrada ainda</h3>
+        <p>Seja a primeira instituição a se juntar a nós! Vá em "Área da ONG" para cadastrar sua causa.</p>
+      </div>
+    </div>
+
+    <div class="grid-ongs" *ngIf="ongsDinamicas.length > 0">
+      
+      <div class="card-ong card-dinamico" *ngFor="let ong of ongsDinamicas">
+        <div class="card-body">
+          <div class="card-tag tag-dinamica">{{ ong.tag }}</div>
+          <h3>{{ ong.nome }}</h3>
+          <p>{{ ong.descricao }}</p>
+
+          <div class="lista-desejos-vitrine" *ngIf="ong.mostrarDetalhes">
+            <h4>📋 Necessidades Atuais:</h4>
+            <div class="empty-state-card" *ngIf="!ong.pedidos || ong.pedidos.length === 0">
+              <p>Nenhum item solicitado no momento. Entre em contato para saber como ajudar!</p>
+            </div>
+            <ul class="pedidos-lista-vitrine" *ngIf="ong.pedidos && ong.pedidos.length > 0">
+              <li *ngFor="let ped of ong.pedidos" [class.recebido]="ped.status === 'Recebido'">
+                <span class="ped-item"><strong>{{ ped.item }}</strong> ({{ ped.quantidade }})</span>
+                <span class="ped-status-badge" [ngClass]="{
+                  'prio-alta': ped.prioridade === 'Alta' && ped.status === 'Pendente',
+                  'prio-media': ped.prioridade === 'Média' && ped.status === 'Pendente',
+                  'prio-baixa': ped.prioridade === 'Baixa' && ped.status === 'Pendente',
+                  'status-ok': ped.status === 'Recebido'
+                }">
+                  {{ ped.status === 'Recebido' ? 'Recebido' : ped.prioridade }}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-footer">
+
+          <div class="doador-actions">
+            <button class="btn-card-toggle" (click)="alternarDetalhes(ong)">
+              {{ ong.mostrarDetalhes ? '⬆ Ocultar Lista' : '📋 Ver Necessidades' }}
+            </button>
+            <a [href]="'https://wa.me/' + ong.whatsapp" target="_blank" class="btn-card-whatsapp">
+              💬 Whatsapp
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer id="sobre" class="footer">
+  <div class="footer-content">
+    <h2>JUNTE-SE À NOSSA MISSÃO.<br>SEJA VOLUNTÁRIO, DOE, DEFENDA. COMECE HOJE.</h2>
+    
+    <div class="footer-contacts">
+      <p><strong>E-mail:</strong> contato&#64;conectaong.com</p>
+      <p><strong>Fale conosco:</strong> (47) 99999-2026</p>
+    </div>
+
+    <div class="footer-actions">
+      <a href="#ongs" class="btn-footer-gold">Colaborar</a>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2026 ConectaONG. Todos os direitos reservados. Projeto de TCC - Entra21.</p>
+  </div>
+</footer>
