@@ -110,46 +110,51 @@
 
 .btn-nav-login {
   background-color: var(--gold-button);
-  color: var(--text-light) !important;
+  color: var(--green-dark) !important;
   padding: 12px 20px !important;
-  border-radius: 50px;
+  border-radius: 50px; 
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 4px 10px rgba(203, 163, 88, 0.2);
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
   width: 100% !important;
   text-align: center;
   margin-top: 15px !important;
   box-sizing: border-box;
+  border: none; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
 }
 
 .btn-nav-login:hover {
   background-color: var(--gold-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
-.btn-nav-panel {
+.nav-links a.btn-nav-panel,
+.nav-links a.btn-nav-panel:last-of-type {
   background-color: transparent;
   color: #ffffff !important;
-  border: 1.5px dashed var(--gold-button) !important;
+  border: 2px solid rgba(255, 255, 255, 0.6) !important; 
   padding: 10px 20px !important;
-  border-radius: 50px;
+  border-radius: 50px !important; 
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
   width: 100% !important;
   text-align: center;
-  margin-top: 10px !important;
+  margin-top: 12px !important;
   box-sizing: border-box;
 }
 
-.btn-nav-panel:hover {
-  background-color: rgba(203, 163, 88, 0.12);
-  border-style: solid;
-  color: var(--gold-button) !important;
+.nav-links a.btn-nav-panel:hover,
+.nav-links a.btn-nav-panel:last-of-type:hover {
+  background-color: rgba(255, 255, 255, 0.1); 
+  border-color: #ffffff !important;
 }
 
+/* ==========================================================
+   HERO SECTION
+   ========================================================== */
 .main-content {
   padding: 0; 
 }
@@ -221,7 +226,7 @@
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -238,6 +243,51 @@
 .section-header p {
   color: var(--text-muted);
   font-size: 1.1rem;
+}
+
+.filters-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap; 
+}
+
+.filter-btn {
+  background-color: var(--bg-card);
+  border: 1.5px solid rgba(11, 77, 62, 0.1);
+  color: var(--text-muted);
+  padding: 8px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.filter-btn:hover {
+  border-color: var(--gold-button);
+  color: var(--green-dark);
+}
+
+.filter-btn.active {
+  background-color: var(--green-dark);
+  color: var(--text-light);
+  border-color: var(--green-dark);
+  box-shadow: 0 4px 10px rgba(7, 56, 45, 0.2);
+}
+
+.filter-urgent {
+  color: #d93025;
+  border-color: rgba(217, 48, 37, 0.2);
+  background-color: #fff9f9;
+}
+
+.filter-urgent:hover {
+  background-color: #d93025;
+  color: #ffffff;
+  border-color: #d93025;
 }
 
 .grid-ongs {
@@ -268,6 +318,13 @@
   border-top-color: var(--gold-button);
 }
 
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
 .card-tag {
   display: inline-block;
   color: var(--gold-hover);
@@ -275,44 +332,123 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0;
+}
+
+.badge-urgent {
+  background: #fce8e6;
+  color: #d93025;
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
 }
 
 .card-ong h3 {
   color: var(--green-dark);
-  margin: 0 0 1rem 0;
-  font-size: 1.6rem;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.02rem;
 }
 
-.card-ong p {
+.ong-name {
+  font-size: 0.9rem !important;
+  color: var(--green-light) !important;
+  font-weight: 700;
+  margin-bottom: 1rem !important;
+}
+
+.card-desc {
   color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.6;
-  margin: 0 0 2rem 0;
+  margin-bottom: 1.5rem !important;
+  min-height: 48px; 
 }
 
-.btn-card-action {
-  background-color: var(--gold-button);
-  color: var(--text-light);
-  border: none;
+.progress-section {
+  margin-bottom: 1.8rem;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.progress-labels strong {
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
+.progress-bar {
   width: 100%;
-  padding: 0.9rem;
+  height: 8px;
+  background-color: rgba(11, 77, 62, 0.08);
+  border-radius: 10px;
+  overflow: hidden; 
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--green-medium);
+  border-radius: 10px;
+  transition: width 1s ease-in-out; 
+}
+
+.card-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-card-outline {
+  flex: 1; 
+  background: transparent;
+  border: 1.5px solid var(--green-light);
+  color: var(--green-dark);
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.btn-card-outline:hover {
+  background: var(--green-light);
+  color: var(--text-light);
+}
+
+.btn-card-solid {
+  flex: 1; 
+  background: var(--gold-button);
+  border: 1.5px solid var(--gold-button);
+  color: var(--text-light);
+  text-align: center;
+  padding: 10px;
   border-radius: 8px;
   font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  text-align: center;
   text-decoration: none;
-  display: inline-block;
-  box-shadow: 0 4px 10px rgba(203, 163, 88, 0.15);
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(203, 163, 88, 0.2);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
 }
 
-.btn-card-action:hover {
-  background-color: var(--gold-hover);
-  box-shadow: 0 6px 15px rgba(203, 163, 88, 0.25);
+.btn-card-solid:hover {
+  background: var(--gold-hover);
+  border-color: var(--gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(203, 163, 88, 0.3);
 }
 
 .card-dinamico {
@@ -438,5 +574,11 @@
     width: 100% !important;
     text-align: center;
     box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-actions {
+    flex-direction: column;
   }
 }

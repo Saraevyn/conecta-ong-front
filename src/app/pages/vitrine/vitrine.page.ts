@@ -20,7 +20,6 @@ interface Ong {
 })
 export class VitrinePage implements OnInit {
 
-  // ---> NOVA VARIÁVEL PARA O MENU MOBILE <---
   menuAberto: boolean = false;
 
   ongsEstaticas: Ong[] = [
@@ -56,7 +55,6 @@ export class VitrinePage implements OnInit {
     this.carregarOngsDinamicas();
   }
 
-  // ---> NOVA FUNÇÃO PARA ABRIR E FECHAR O MENU <---
   toggleMenu(): void {
     this.menuAberto = !this.menuAberto;
   }
