@@ -20,6 +20,9 @@ interface Ong {
 })
 export class VitrinePage implements OnInit {
 
+  // ---> NOVA VARIÁVEL PARA O MENU MOBILE <---
+  menuAberto: boolean = false;
+
   ongsEstaticas: Ong[] = [
     { 
       id: 1, 
@@ -51,6 +54,11 @@ export class VitrinePage implements OnInit {
 
   ngOnInit() {
     this.carregarOngsDinamicas();
+  }
+
+  // ---> NOVA FUNÇÃO PARA ABRIR E FECHAR O MENU <---
+  toggleMenu(): void {
+    this.menuAberto = !this.menuAberto;
   }
 
   carregarOngsDinamicas() {

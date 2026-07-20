@@ -4,11 +4,16 @@
       <span class="brand-icon">🌍</span>
       <h2>ConectaONG</h2>
     </div>
-    <div class="nav-links">
-      <a href="#ongs" class="active">Instituições</a>
-      <a href="#sobre">Nossa Missão</a>
-      <a routerLink="/login" class="btn-nav-login">Área da ONG</a>
-      <a routerLink="/painel" class="btn-nav-panel">Painel Administrativo</a>
+
+    <button class="menu-hamburger" (click)="toggleMenu()">
+      ☰
+    </button>
+
+    <div class="nav-links" [ngClass]="{ 'aberto': menuAberto }">
+      <a href="#ongs" class="active" (click)="menuAberto = false">Instituições</a>
+      <a href="#sobre" (click)="menuAberto = false">Nossa Missão</a>
+      <a routerLink="/login" class="btn-nav-login" (click)="menuAberto = false">Área da ONG</a>
+      <a routerLink="/painel" class="btn-nav-panel" (click)="menuAberto = false">Painel Administrativo</a>
     </div>
   </div>
 </nav>

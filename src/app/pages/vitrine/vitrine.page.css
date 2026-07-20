@@ -1,13 +1,12 @@
 :host {
-  /* Definição de cores refinadas - Estilo Premium & Humano */
   --green-dark: #07382d;
   --green-medium: #0b4d3e;
   --green-light: #156150;
   --gold-button: #cba358;
   --gold-hover: #b58f47;
-  --bg-sand: #faf7f0; /* Um tom areia mais suave e quente */
+  --bg-sand: #faf7f0; 
   --bg-card: #ffffff;
-  --text-main: #22322e; /* Verde escuro quase preto para melhor legibilidade */
+  --text-main: #22322e; 
   --text-light: #ffffff;
   --text-muted: #536b63;
 
@@ -17,22 +16,22 @@
   background-color: #ffffff;
 }
 
-/* NAVBAR - Elegante e Consistente */
 .navbar {
   background-color: var(--green-dark);
-  padding: 1.2rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 20px rgba(7, 56, 45, 0.15);
+  position: relative;
+  z-index: 999;
+  height: auto !important;
 }
 
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
+  display: flex !important;
+  justify-content: space-between !important;
   align-items: center;
+  padding: 15px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .nav-brand {
@@ -53,66 +52,108 @@
   letter-spacing: -0.03rem;
 }
 
+.menu-hamburger {
+  display: block !important; 
+  background: none;
+  border: none;
+  color: white;
+  font-size: 32px; 
+  cursor: pointer;
+  position: relative;
+  z-index: 1005 !important; 
+}
+
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  position: fixed !important;
+  top: 0 !important;
+  right: -100% !important; 
+  width: 300px !important;
+  height: 100vh !important;
+  background-color: #052921 !important; 
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  padding: 80px 30px 30px 30px !important;
+  gap: 15px !important;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; 
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.4) !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  margin: 0 !important;
+  overflow-y: auto !important;
+}
+
+.nav-links.aberto {
+  right: 0 !important;
 }
 
 .nav-links a {
-  color: #a9cfc5;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: all 0.25s ease;
-}
-
-.nav-links a:hover, .nav-links a.active {
+  width: 100% !important;
+  font-size: 1.1rem !important;
+  padding: 15px 10px !important; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   color: var(--text-light);
+  text-decoration: none;
+  display: block !important;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
-/* Botões do Topo - Unificados com o Dourado Fosco Premium */
+.nav-links a:hover {
+  color: var(--gold-button);
+  padding-left: 15px !important; 
+}
+
+.nav-links a:last-of-type {
+  border-bottom: none !important;
+  margin-bottom: 15px !important; 
+}
+
 .btn-nav-login {
   background-color: var(--gold-button);
-  color: var(--text-light);
-  padding: 9px 20px;
+  color: var(--text-light) !important;
+  padding: 12px 20px !important;
   border-radius: 50px;
   font-weight: 700;
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(203, 163, 88, 0.2);
   transition: all 0.25s ease;
+  width: 100% !important;
+  text-align: center;
+  margin-top: 15px !important;
+  box-sizing: border-box;
 }
 
 .btn-nav-login:hover {
   background-color: var(--gold-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(203, 163, 88, 0.3);
 }
 
 .btn-nav-panel {
   background-color: transparent;
-  color: #ffffff;
-  border: 1.5px dashed var(--gold-button);
-  padding: 8px 18px;
+  color: #ffffff !important;
+  border: 1.5px dashed var(--gold-button) !important;
+  padding: 10px 20px !important;
   border-radius: 50px;
   font-weight: 600;
   font-size: 0.9rem;
   text-decoration: none;
   transition: all 0.25s ease;
+  width: 100% !important;
+  text-align: center;
+  margin-top: 10px !important;
+  box-sizing: border-box;
 }
 
 .btn-nav-panel:hover {
   background-color: rgba(203, 163, 88, 0.12);
   border-style: solid;
-  color: var(--gold-button);
+  color: var(--gold-button) !important;
 }
 
-/* LAYOUT CONTAINER */
 .main-content {
-  padding: 0; /* Remove o padding do container para a seção areia expandir */
+  padding: 0; 
 }
 
-/* HERO SECTION - Espaçamento Nobre */
 .hero-section {
   text-align: center;
   padding: 6rem 1.5rem 4rem 1.5rem;
@@ -169,11 +210,10 @@
   box-shadow: 0 8px 20px rgba(7, 56, 45, 0.3);
 }
 
-/* SEÇÃO VITRINE (Ajustada para envelopar toda a largura) */
 .vitrine-section {
   background-color: var(--bg-sand);
   padding: 5rem 2rem;
-  border-radius: 0; /* Ocupa toda a tela */
+  border-radius: 0; 
   margin: 4rem 0;
   border-top: 1px solid rgba(11, 77, 62, 0.05);
   border-bottom: 1px solid rgba(11, 77, 62, 0.05);
@@ -200,7 +240,6 @@
   font-size: 1.1rem;
 }
 
-/* GRID DE CARDS */
 .grid-ongs {
   max-width: 1200px;
   margin: 0 auto;
@@ -209,7 +248,6 @@
   gap: 2.5rem;
 }
 
-/* CARDS DE ONG - Modernos, com profundidade e hover responsivo */
 .card-ong {
   background-color: var(--bg-card);
   border-radius: 16px;
@@ -255,7 +293,6 @@
   margin: 0 0 2rem 0;
 }
 
-/* BOTÕES DE COLABORAR (Unificados) */
 .btn-card-action {
   background-color: var(--gold-button);
   color: var(--text-light);
@@ -278,7 +315,6 @@
   box-shadow: 0 6px 15px rgba(203, 163, 88, 0.25);
 }
 
-/* Estilo para os Cards Dinâmicos Criados do Painel */
 .card-dinamico {
   border-top-color: var(--gold-button) !important;
 }
@@ -291,7 +327,6 @@
   color: var(--green-light) !important;
 }
 
-/* FOOTER - Nobre e Confortável */
 .footer {
   background-color: var(--green-dark);
   color: var(--text-light);
@@ -366,11 +401,42 @@
   color: #79978f;
 }
 
-/* RESPONSIVIDADE EXCELENTE */
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .footer-actions { flex-direction: column; align-items: center; gap: 1rem; }
-  .hero-section h1 { font-size: 2.2rem; }
-  .hero-section p { font-size: 1.1rem; }
-  .vitrine-section { padding: 4rem 1.2rem; }
+  .nav-container {
+    padding: 10px 20px !important;
+  }
+
+  .hero-section h1 {
+    font-size: 2.2rem !important;
+  }
+  
+  .vitrine-section, .main-content section, .footer-content {
+    padding: 30px 24px !important; 
+    box-sizing: border-box;
+  }
+
+  input, textarea, select, .card-ong {
+    width: 100% !important;
+    box-sizing: border-box; 
+  }
+
+  .footer-content h2 {
+    font-size: 20px !important; 
+    line-height: 1.4;
+    margin-bottom: 25px;
+  }
+
+  .footer-actions {
+    margin-top: 25px;
+    display: flex !important;
+    flex-direction: column !important; 
+    gap: 12px;
+    width: 100%;
+  }
+
+  .footer-actions a {
+    width: 100% !important;
+    text-align: center;
+    box-sizing: border-box;
+  }
 }
