@@ -16,7 +16,7 @@
       <a href="#ongs" class="active" (click)="menuAberto = false">Instituições</a>
       <a href="#sobre" (click)="menuAberto = false">Nossa Missão</a>
       <a routerLink="/login" class="btn-nav-login" (click)="menuAberto = false">Área da ONG</a>
-      <a routerLink="/painel" class="btn-nav-panel" (click)="menuAberto = false">Painel Administrativo</a>
+
     </div>
   </div>
 </nav>
@@ -31,14 +31,12 @@
     <a href="#ongs" class="btn-hero-cta">Explorar Causas</a>
   </section>
 
-  <!-- SEÇÃO FEED DE DOAÇÕES (Atualizada com novo Layout) -->
   <section id="ongs" class="vitrine-section">
     <div class="section-header">
       <h2>Seja um voluntário e cause impacto</h2>
       <p>Selecione uma instituição abaixo para visualizar a lista de desejos e colaborar.</p>
     </div>
 
-    <!-- Barra de Filtros Intuitivos -->
     <div class="filters-container">
       <button class="filter-btn active">Todos</button>
       <button class="filter-btn">Alimentos</button>
@@ -49,18 +47,16 @@
 
     <div class="grid-ongs">
 
-      <!-- CARDS DAS ONGs ESTÁTICAS -->
       <div class="card-ong" *ngFor="let ong of ongsEstaticas">
         <div class="card-header">
           <span class="card-tag">{{ ong.tag }}</span>
         </div>
-        
+
         <h3>{{ ong.nome }}</h3>
         <p class="ong-name"><i class="fas fa-building"></i> Instituição Verificada</p>
-        
+
         <p class="card-desc">{{ ong.descricao }}</p>
 
-        <!-- Barra de Progresso Visual (Placeholder visual para o layout) -->
         <div class="progress-section">
           <div class="progress-labels">
             <span>Progresso da Campanha</span>
@@ -71,25 +67,22 @@
           </div>
         </div>
 
-        <!-- Hierarquia de Botões -->
         <div class="card-actions">
           <button class="btn-card-outline">Ver Detalhes</button>
           <button class="btn-card-solid">Colaborar</button>
         </div>
       </div>
 
-      <!-- CARDS DAS ONGs DINÂMICAS -->
       <div class="card-ong card-dinamico" *ngFor="let ong of ongsDinamicas">
         <div class="card-header">
           <span class="card-tag tag-dinamica">{{ ong.tag }}</span>
         </div>
-        
+
         <h3>{{ ong.nome }}</h3>
         <p class="ong-name"><i class="fas fa-building"></i> Parceiro ConectaONG</p>
-        
+
         <p class="card-desc">{{ ong.descricao }}</p>
 
-        <!-- Barra de Progresso Visual -->
         <div class="progress-section">
           <div class="progress-labels">
             <span>Progresso da Campanha</span>
@@ -100,7 +93,6 @@
           </div>
         </div>
 
-        <!-- Hierarquia de Botões -->
         <div class="card-actions">
           <button class="btn-card-outline">Ver Detalhes</button>
           <a [href]="'https://wa.me/' + ong.whatsapp" target="_blank" class="btn-card-solid">Colaborar (WhatsApp)</a>
@@ -119,10 +111,8 @@
       <p><strong>E-mail:</strong> contato&#64;conectaong.com</p>
       <p><strong>Fale conosco:</strong> (47) 99999-2026</p>
     </div>
-
     <div class="footer-actions">
       <a href="#ongs" class="btn-footer-gold">Colaborar</a>
-      <a routerLink="/painel" class="btn-footer-outline">Painel Administrativo</a>
     </div>
   </div>
 
